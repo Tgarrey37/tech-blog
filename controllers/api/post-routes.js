@@ -1,13 +1,26 @@
 const router = require('express').Router();
-const { Post } = require('../../models/');
+const { Post, User } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+router.get('/', async (req,res) => {
+  try {
+      const postData = await Post.findAll({
+        include: [User],
+      });
+
+      const posts = postData.map((post) => post.get({ plain: true }));
+
+      res.json(postData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+})
 
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
     console.log(body);
   try {
-    const createPost = await Post.create({ ...body, userId: req.session.userId });
+    const createPost = await Post.create({ ...body, user_id: req.session.user_id });
     console.log("Here is the new post: ",  createPost);
     res.json(createPost);
      } catch (err) {
@@ -27,7 +40,7 @@ router.put('/:id', withAuth, async (req, res) => {
     });
 
     if (affectedRows > 0) {
-      res.status(200).end();
+      res.status(200).json(affectedRows);
     } else {
       res.status(404).end();
     }
