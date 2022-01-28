@@ -5,12 +5,12 @@
       "user_id": 1
     },
     {
-      "title": "comment text 2",
+      "comment_text": "comment text 2",
       "post_id":2,
       "user_id": 2
     },
     {
-      "title": "comment text 3",
+      "comment_text": "comment text 3",
       "post_id": 3,
       "user_id": 3
     }
