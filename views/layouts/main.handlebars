@@ -37,7 +37,7 @@
               <a class="nav-link" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-              {{#if loggedIn}}
+              {{#if logged_in}}
                 <a
                   class="nav-link"
                   id="logoutLink"
@@ -61,7 +61,9 @@
     <main class="container-fluid mainSection">
       {{{body}}}
     </main>
-
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
   </body>
 
 </html>
