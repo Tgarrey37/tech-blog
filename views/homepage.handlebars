@@ -8,6 +8,7 @@
             <h5 class="card-title">{{post.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Written By:{{post.user.username}}</h6>
             <p class="card-text">{{post.post_content}}</p>
+            <p class="card-text">{{format_date post.created_at}}</p>
             <a href="/post/{{post.id}}" class="card-link">View Post</a>
           </div>
         </div>
