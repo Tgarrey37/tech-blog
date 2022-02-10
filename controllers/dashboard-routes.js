@@ -60,7 +60,7 @@ router.get('/new', withAuth, (req, res) => {
         console.log(post);
         
         res.render('edit-post', {
-          layout: 'dashboard',
+          logged_in: req.session.logged_in,
           post,
         });
       } else {

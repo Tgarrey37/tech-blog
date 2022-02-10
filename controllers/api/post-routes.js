@@ -54,6 +54,7 @@ router.put('/:id', withAuth, async (req, res) => {
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     console.log('Made it to delete route');
+    console.log(req.params.id);
     const affectedRows = await Post.destroy({
       where: {
         id: req.params.id,
@@ -66,6 +67,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

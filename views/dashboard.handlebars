@@ -29,10 +29,11 @@
        {{#each posts as |post|}}
        <div class="row mb-2">
            <div class="col-md-8">
-               <a href="/api/post/{{post.id}}" id="singlePost"> {{post.title}}</a>
+               <a href="/post/{{post.id}}" id="singlePost"> {{post.title}}</a>
            </div>
            <div class="col-md-4">
                <button class="btn btn-sm btn-danger delete-btn-red" data-id='{{post.id}}'>Delete</button>
+              <a href="/dashboard/edit/{{post.id}}" class="btn">Update</a>
            </div>
        </div>
        {{/each}}
